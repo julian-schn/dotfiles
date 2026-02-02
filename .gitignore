@@ -1,0 +1,35 @@
+# macOS junk
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / tool noise
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs & caches
+*.log
+.cache/
+tmp/
+
+# Secrets / local-only overrides
+**/local.*
+**/*.local
+.env
+.env.*
+
+# WezTerm local overrides
+wezterm/local.lua
+
+# Shell local files
+zsh/.zshrc.local
+
+# SSH / GPG (never commit)
+.ssh/
+.gnupg/
+
+# OS-specific
+Thumbs.db
