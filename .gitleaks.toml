@@ -1,0 +1,17 @@
+# Gitleaks configuration for dotfiles repo
+# Uses default rules with allowlists for common false positives
+
+title = "dotfiles gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Global allowlist"
+paths = [
+    '''\.git/''',
+    '''\.gitleaks\.toml''',
+    '''LICENSE''',
+    '''Brewfile''',
+    '''README\.md''',
+]
