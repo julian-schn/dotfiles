@@ -29,6 +29,7 @@ jobs:
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_CONFIG: .gitleaks.toml
 
   file-check:
     runs-on: ubuntu-latest
@@ -97,8 +98,8 @@ jobs:
       - name: Check for secrets in config files
         run: |
           if grep -r "SOPS_AGE_KEY_FILE\|api.*key\|password\|token" \
-            shell/.zshrc \
-            terminal/wezterm/.wezterm.lua \
+            zsh/.zshrc \
+            wezterm/wezterm.lua \
             2>/dev/null; then
             echo "WARNING: Found potential secret references in config files"
             echo "Please ensure these are template examples, not real values"
