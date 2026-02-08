@@ -13,6 +13,9 @@ brew "ripgrep"
 brew "fd"
 brew "git-delta"
 
+# ── Editor ─────────────────────────────────────────
+brew "neovim"
+
 # ── Applications ────────────────────────────────────
 cask "wezterm"
 
