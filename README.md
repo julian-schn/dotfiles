@@ -11,6 +11,8 @@ dotfiles/
 ├── .gitleaks.toml          # Secret scanning config
 ├── git/
 │   └── .gitconfig          # Git config template
+├── nvim/
+│   └── init.lua            # Neovim config (everforest light, telescope, treesitter)
 ├── wezterm/
 │   └── wezterm.lua         # WezTerm terminal (Danqing Light theme)
 └── zsh/
@@ -38,6 +40,7 @@ git config --global user.email "you@example.com"
 
 | Tool | What it does |
 |------|-------------|
+| **Neovim** | Text editor with treesitter, telescope, and everforest light theme |
 | **WezTerm** | GPU-accelerated terminal with a light color scheme |
 | **eza** | Modern `ls` replacement with colors and icons |
 | **zoxide** | Smarter `cd` that learns your habits |

@@ -53,6 +53,7 @@ link() {
 # ── Create symlinks ────────────────────────────────
 info "Symlinking configs..."
 link "$DOTFILES_DIR/wezterm"        "$HOME/.config/wezterm"
+link "$DOTFILES_DIR/nvim"           "$HOME/.config/nvim"
 link "$DOTFILES_DIR/zsh/.zshrc"     "$HOME/.zshrc"
 link "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
 
