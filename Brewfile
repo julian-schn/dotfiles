@@ -1,11 +1,6 @@
 # Brewfile — macOS development environment
 # Install with: brew bundle
 
-# ── Terminal & Shell ─────────────────────────────────
-brew "zsh-autosuggestions"
-brew "zsh-syntax-highlighting"
-brew "starship"
-
 # ── Modern CLI Tools ────────────────────────────────
 brew "eza"
 brew "zoxide"

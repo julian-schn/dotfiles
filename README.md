@@ -47,7 +47,6 @@ git config --global user.email "you@example.com"
 | **ripgrep** | Fast `grep` alternative |
 | **fd** | Fast `find` alternative |
 | **delta** | Pretty git diffs |
-| **starship** | Cross-shell prompt (opt-in, see below) |
 
 ## Local overrides
 
@@ -55,14 +54,6 @@ Machine-specific tweaks go in local files that are gitignored:
 
 - `zsh/.zshrc.local` — sourced at the end of `.zshrc`
 - `wezterm/local.lua` — loaded by the wezterm config
-
-For example, to enable starship and zsh plugins, add to `zsh/.zshrc.local`:
-
-```bash
-eval "$(starship init zsh)"
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-```
 
 ## Note
 
