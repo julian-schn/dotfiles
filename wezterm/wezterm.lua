@@ -23,14 +23,14 @@ config.colors = {
   selection_bg = "#E6F0F2",
 
   ansi = {
-    "#E0E0E0", -- black
-    "#F9906F", -- red
-    "#8AB361", -- green
-    "#F0C239", -- yellow
-    "#4D8ACF", -- blue
-    "#D08489", -- magenta
-    "#5FB3B3", -- cyan
-    "#3C4C55", -- white
+    "#E0E0E0",
+    "#F9906F",
+    "#8AB361",
+    "#F0C239",
+    "#4D8ACF",
+    "#D08489",
+    "#5FB3B3",
+    "#3C4C55",
   },
 
   brights = {
@@ -43,12 +43,50 @@ config.colors = {
     "#5FB3B3",
     "#2F3E46",
   },
+
+  -- Tab bar styling (light-theme friendly)
+  tab_bar = {
+    background = "#FCFDFC",
+
+    active_tab = {
+      bg_color = "#E6F0F2",
+      fg_color = "#3C4C55",
+      intensity = "Bold",
+      underline = "Single",
+    },
+
+    inactive_tab = {
+      bg_color = "#FCFDFC",
+      fg_color = "#9DA8A3",
+    },
+
+    inactive_tab_hover = {
+      bg_color = "#E6F0F2",
+      fg_color = "#3C4C55",
+    },
+
+    new_tab = {
+      bg_color = "#FCFDFC",
+      fg_color = "#9DA8A3",
+    },
+
+    new_tab_hover = {
+      bg_color = "#E6F0F2",
+      fg_color = "#3C4C55",
+    },
+  },
 }
+
+-- Tabs
+config.enable_tab_bar = true
+config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = false
+config.show_tab_index_in_tab_bar = true
+config.tab_max_width = 24
 
 -- Window
 config.window_padding = { left = 10, right = 10, top = 8, bottom = 8 }
 config.window_decorations = "RESIZE"
-config.enable_tab_bar = false
 
 -- Behavior
 config.scrollback_lines = 10000
@@ -58,9 +96,10 @@ config.audible_bell = "Disabled"
 config.front_end = "WebGpu"
 config.max_fps = 120
 
--- Keybindings (mac-friendly)
+-- Leader
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 
+-- Keybindings
 config.keys = {
   -- Pane splitting
   { key = "d", mods = "CMD", action = wezterm.action.SplitHorizontal },
@@ -75,5 +114,37 @@ config.keys = {
   -- Close pane
   { key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
 }
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+  local pane = tab.active_pane
+  local title = ""
+
+  -- Detect SSH
+  local process = pane.foreground_process_name
+  if process and process:find("ssh") then
+    title = "ssh"
+  end
+
+  -- Get cwd folder name
+  local cwd_uri = pane.current_working_dir
+  if cwd_uri then
+    local cwd = cwd_uri.file_path
+    cwd = cwd:match("([^/]+)$") or cwd
+    title = cwd
+  end
+
+  -- Fallback
+  if title == "" then
+    title = pane.title
+  end
+
+  -- Truncate if too long
+  local max = 18
+  if #title > max then
+    title = string.sub(title, 1, max - 1) .. "…"
+  end
+
+  return " " .. title .. " "
+end)
 
 return config
