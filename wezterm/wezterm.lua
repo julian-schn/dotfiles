@@ -87,6 +87,8 @@ config.tab_max_width = 24
 -- Window
 config.window_padding = { left = 10, right = 10, top = 8, bottom = 8 }
 config.window_decorations = "RESIZE"
+config.window_background_opacity = .9
+config.macos_window_background_blur = 2
 
 -- Behavior
 config.scrollback_lines = 10000
