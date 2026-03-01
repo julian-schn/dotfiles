@@ -21,3 +21,4 @@ TABS
 
 # ---- Functions ----
 h() { cd "$HOME/${1:-}"; }
+mkcd() { mkdir -p "$1" && cd "$1"; }
