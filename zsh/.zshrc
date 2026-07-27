@@ -16,4 +16,15 @@ fi
 # ---- Aliases & functions ----
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 
-true
+# ---- PATH ----
+export PATH="$HOME/.local/bin:$PATH"
+
+# Antigravity IDE (agy-ide, antigravity-ide)
+if [[ -d "$HOME/.antigravity-ide/antigravity-ide/bin" ]]; then
+  export PATH="$HOME/.antigravity-ide/antigravity-ide/bin:$PATH"
+fi
+
+# Go tools (sweeper et al.)
+if command -v go >/dev/null 2>&1; then
+  export PATH="$PATH:$(go env GOPATH)/bin"
+fi
