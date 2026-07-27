@@ -69,6 +69,9 @@ info "Symlinking configs..."
 link "$DOTFILES_DIR/wezterm"        "$HOME/.config/wezterm"
 link "$DOTFILES_DIR/nvim"           "$HOME/.config/nvim"
 link "$DOTFILES_DIR/zsh/.zshrc"     "$HOME/.zshrc"
+# .zshrc sources ~/.zsh_aliases — without this link the aliases and
+# functions (pc, scuts, mkcd, h) silently never load.
+link "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.zsh_aliases"
 link "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
 
 # ── Done ────────────────────────────────────────────
