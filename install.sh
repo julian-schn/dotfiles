@@ -31,6 +31,20 @@ info "Installing packages from Brewfile..."
 brew bundle --file="$DOTFILES_DIR/Brewfile"
 success "Packages installed"
 
+# ── Go tools ────────────────────────────────────────
+# sweeper declares "module sweeper" so it has no remote import path —
+# clone it and install from the working tree.
+if command -v go &>/dev/null; then
+    info "Installing sweeper..."
+    tmp="$(mktemp -d)"
+    trap 'rm -rf "$tmp"' EXIT
+    git clone --depth 1 https://github.com/julian-schn/tui-sweeper.git "$tmp/tui-sweeper"
+    (cd "$tmp/tui-sweeper" && go install .)
+    success "sweeper installed to $(go env GOPATH)/bin"
+else
+    info "Go not found — skipping sweeper (install Go, then rerun)"
+fi
+
 # ── Symlink helper ──────────────────────────────────
 # Creates a symlink, backing up existing files if needed
 link() {
