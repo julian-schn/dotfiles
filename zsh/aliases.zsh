@@ -1,6 +1,7 @@
 # ---- Aliases ----
 alias cls=clear
 alias home='cd ~'
+alias pc='printf "%s" "$PWD" | pbcopy && echo "copied: $PWD"'
 
 alias scuts='echo "
 WEZTERM SHORTCUTS (macOS)
