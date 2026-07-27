@@ -16,7 +16,8 @@ dotfiles/
 ├── wezterm/
 │   └── wezterm.lua         # WezTerm terminal (Danqing Light theme)
 └── zsh/
-    └── .zshrc              # Zsh config (minimal prompt, zoxide)
+    ├── .zshrc              # Zsh config (minimal prompt, zoxide, PATH)
+    └── aliases.zsh         # Aliases & functions (symlinked to ~/.zsh_aliases)
 ```
 
 ## Quick start
@@ -36,6 +37,21 @@ git config --global user.name "Your Name"
 git config --global user.email "you@example.com"
 ```
 
+## Aliases & commands
+
+Defined in `zsh/aliases.zsh`. Forgot one? Run `scuts` — it prints this list (plus the WezTerm
+keybindings) in any shell.
+
+| Command | What it does |
+|---------|-------------|
+| `cls` | Clear the screen |
+| `home` | `cd` to home |
+| `h <dir>` | `cd` to `~/<dir>` |
+| `mkcd <dir>` | Create a directory and `cd` into it |
+| `pc` | Copy the current path to the clipboard (no trailing newline) |
+| `scuts` | Show the shortcut cheat sheet |
+| `sweeper` | Play terminal Minesweeper |
+
 ## Tools
 
 | Tool | What it does |
@@ -47,6 +63,7 @@ git config --global user.email "you@example.com"
 | **ripgrep** | Fast `grep` alternative |
 | **fd** | Fast `find` alternative |
 | **delta** | Pretty git diffs |
+| **sweeper** | Terminal Minesweeper ([tui-sweeper](https://github.com/julian-schn/tui-sweeper)) — not from Homebrew; `install.sh` builds it with `go install`, so it needs Go and lands in `$(go env GOPATH)/bin` |
 
 ## Local overrides
 
