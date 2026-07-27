@@ -28,3 +28,10 @@ fi
 if command -v go >/dev/null 2>&1; then
   export PATH="$PATH:$(go env GOPATH)/bin"
 fi
+
+# ---- Machine-specific overrides (gitignored) ----
+# Put anything host-only here rather than editing this file — that keeps
+# installer-appended junk out of version control.
+_zshrc_dir="${${(%):-%x}:A:h}"
+[[ -f "$_zshrc_dir/.zshrc.local" ]] && source "$_zshrc_dir/.zshrc.local"
+unset _zshrc_dir

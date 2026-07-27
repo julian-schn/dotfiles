@@ -70,7 +70,11 @@ keybindings) in any shell.
 Machine-specific tweaks go in local files that are gitignored:
 
 - `zsh/.zshrc.local` — sourced at the end of `.zshrc`
-- `wezterm/local.lua` — loaded by the wezterm config
+- `wezterm/local.lua` — loaded by the wezterm config; return either a table of
+  config keys to merge, or a function that takes `config` and mutates it
+
+Put host-only settings here rather than editing the tracked configs — that is
+what keeps installer-appended `PATH` lines out of version control.
 
 ## Note
 

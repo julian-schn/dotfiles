@@ -147,4 +147,17 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   return " " .. title .. " "
 end)
 
+-- Machine-specific overrides (gitignored): wezterm/local.lua may return either
+-- a table of config keys to merge, or a function that mutates config.
+local ok, override = pcall(require, "local")
+if ok then
+  if type(override) == "function" then
+    override(config)
+  elseif type(override) == "table" then
+    for k, v in pairs(override) do
+      config[k] = v
+    end
+  end
+end
+
 return config
