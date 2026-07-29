@@ -27,6 +27,11 @@ wezterm/local.lua
 # Shell local files
 zsh/.zshrc.local
 
+# Claude Code — config only, never state
+.claude/settings.local.json
+claude/**/state/
+claude/**/*.doctor-backup
+
 # SSH / GPG (never commit)
 .ssh/
 .gnupg/

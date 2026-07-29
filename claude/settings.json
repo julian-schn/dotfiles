@@ -1,0 +1,68 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "model": "opus",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git commit*)",
+            "command": "bash \"$HOME/.claude/hooks/conventional-commit.sh\"",
+            "timeout": 10,
+            "statusMessage": "Checking commit message..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/check-docs-stale.sh\"",
+            "timeout": 15,
+            "asyncRewake": true,
+            "rewakeMessage": "Documentation staleness check:",
+            "rewakeSummary": "Docs may be stale"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "cloudflare@cloudflare": true,
+    "i-have-adhd@i-have-adhd": true,
+    "andrej-karpathy-skills@karpathy-skills": false
+  },
+  "extraKnownMarketplaces": {
+    "cloudflare": {
+      "source": {
+        "source": "github",
+        "repo": "cloudflare/skills"
+      }
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
+    },
+    "karpathy-skills": {
+      "source": {
+        "source": "github",
+        "repo": "forrestchang/andrej-karpathy-skills"
+      }
+    }
+  },
+  "tui": "fullscreen",
+  "theme": "light",
+  "agentPushNotifEnabled": true,
+  "permissions": {
+    "defaultMode": "auto"
+  }
+}
