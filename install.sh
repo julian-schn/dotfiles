@@ -55,12 +55,16 @@ link() {
 
     # Back up existing non-symlink targets
     if [[ -e "$dst" && ! -L "$dst" ]]; then
-        local backup="${dst}.backup.$(date +%Y%m%d_%H%M%S)"
+        local backup
+        backup="${dst}.backup.$(date +%Y%m%d_%H%M%S)"
         mv "$dst" "$backup"
         info "Backed up $dst → $backup"
     fi
 
-    ln -sf "$src" "$dst"
+    # -n is load-bearing for directory links. Without it, a rerun sees $dst as an
+    # existing symlink-to-directory, follows it, and creates the link *inside* the
+    # target — producing nvim/nvim, wezterm/wezterm, and so on with each run.
+    ln -sfn "$src" "$dst"
     success "Linked $dst → $src"
 }
 
