@@ -78,6 +78,32 @@ link "$DOTFILES_DIR/zsh/.zshrc"     "$HOME/.zshrc"
 link "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.zsh_aliases"
 link "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
 
+# ── Claude Code ────────────────────────────────────
+# File-level links wherever the parent directory also holds runtime state:
+# ~/.claude has sessions/ and history.jsonl, ~/.claude/hooks has hooks/state/.
+# rules/ is ours alone, so the whole directory is linked and new rules need no reinstall.
+# skills/ is linked one level down so other skills can still be installed alongside.
+link "$DOTFILES_DIR/claude/CLAUDE.md"                    "$HOME/.claude/CLAUDE.md"
+link "$DOTFILES_DIR/claude/settings.json"                "$HOME/.claude/settings.json"
+link "$DOTFILES_DIR/claude/rules"                        "$HOME/.claude/rules"
+link "$DOTFILES_DIR/claude/skills/ui-review"             "$HOME/.claude/skills/ui-review"
+link "$DOTFILES_DIR/claude/hooks/check-docs-stale.sh"    "$HOME/.claude/hooks/check-docs-stale.sh"
+link "$DOTFILES_DIR/claude/hooks/conventional-commit.sh" "$HOME/.claude/hooks/conventional-commit.sh"
+
+# Playwright MCP is registered through the CLI, not symlinked: user-scope MCP servers
+# live in ~/.claude.json alongside per-project local history, which must stay untracked.
+if command -v claude &>/dev/null; then
+    if claude mcp get playwright &>/dev/null; then
+        success "playwright MCP already registered"
+    else
+        info "Registering playwright MCP (user scope)..."
+        claude mcp add --scope user playwright -- npx -y @playwright/mcp@latest
+        success "playwright MCP registered"
+    fi
+else
+    info "claude CLI not found — skipping playwright MCP"
+fi
+
 # ── Done ────────────────────────────────────────────
 echo ""
 success "Dotfiles installed!"

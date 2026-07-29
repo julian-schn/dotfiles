@@ -7,6 +7,12 @@ brew "zoxide"
 brew "ripgrep"
 brew "fd"
 brew "git-delta"
+# macOS ships jq, but the conventional-commit hook depends on it — be explicit.
+brew "jq"
+
+# ── Shell tooling ───────────────────────────────────
+# Lints install.sh and the Claude hooks.
+brew "shellcheck"
 
 # ── Editor ─────────────────────────────────────────
 brew "neovim"
