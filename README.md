@@ -56,6 +56,7 @@ keybindings) in any shell.
 | `mkcd <dir>` | Create a directory and `cd` into it |
 | `pc` | Copy the current path to the clipboard (no trailing newline) |
 | `scuts` | Show the shortcut cheat sheet |
+| `slog` | `git log --oneline` — compact commit history |
 | `sweeper` | Play terminal Minesweeper |
 
 ## Tools

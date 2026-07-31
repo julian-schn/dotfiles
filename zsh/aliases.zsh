@@ -2,6 +2,7 @@
 alias cls=clear
 alias home='cd ~'
 alias pc='printf "%s" "$PWD" | pbcopy && echo "copied: $PWD"'
+alias slog='git log --oneline'
 
 alias scuts='echo "
 WEZTERM SHORTCUTS (macOS)
@@ -26,6 +27,9 @@ SHELL
   mkcd <dir>     Create a directory and cd into it
   pc             Copy the current path to the clipboard
   scuts          Show this cheat sheet
+
+GIT
+  slog           Compact one-line git log
 
 TOOLS
   sweeper        Terminal Minesweeper
