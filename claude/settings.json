@@ -3,7 +3,10 @@
     "commit": "",
     "pr": ""
   },
-  "model": "opus",
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "Opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -11,8 +14,8 @@
         "hooks": [
           {
             "type": "command",
-            "if": "Bash(git commit*)",
             "command": "bash \"$HOME/.claude/hooks/conventional-commit.sh\"",
+            "if": "Bash(git commit*)",
             "timeout": 10,
             "statusMessage": "Checking commit message..."
           }
@@ -61,8 +64,5 @@
   },
   "tui": "fullscreen",
   "theme": "light",
-  "agentPushNotifEnabled": true,
-  "permissions": {
-    "defaultMode": "auto"
-  }
+  "agentPushNotifEnabled": true
 }
