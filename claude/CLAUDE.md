@@ -17,6 +17,15 @@ enforcement.
 The structure of the subject line is enforced by the `conventional-commit.sh` PreToolUse
 hook. Lowercase and imperative mood are not — those are on you.
 
+## detached processes
+
+- anything that should outlive the command that started it goes in tmux:
+  `tmux new -d -s <name> '<cmd>'`, read it with `tmux capture-pane -pt <name>`,
+  stop it with `tmux kill-session -t <name>`
+- name the session after the job, list with `tmux ls`, and clean up sessions you started
+- plain background bash is still right for something you wait on in the same turn. tmux is
+  for dev servers, watchers, and long builds I might want to attach to myself
+
 ## pushback
 
 - if I'm about to reinvent something the ecosystem already solved, name the standard option first
