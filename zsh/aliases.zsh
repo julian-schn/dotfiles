@@ -33,6 +33,17 @@ POWER
   blank          Same, but held until you run unblank
   unblank        Let the Mac sleep normally again
 
+TMUX (prefix = ⌃B, press then release)
+  tmux new -s <name>       New named session
+  tmux ls                  List sessions
+  tmux a -t <name>         Attach to one
+  tmux new -d -s <n> <cmd> Run <cmd> detached
+  ⌃B D                     Detach (leaves it running)
+  ⌃B %  /  ⌃B \"           Split left-right / top-bottom
+  ⌃B ←↑↓→                  Move between panes
+  ⌃B C  /  ⌃B N            New window / next window
+  ⌃B [                     Scroll back (Q to exit)
+
 GIT
   slog           Compact one-line git log
 

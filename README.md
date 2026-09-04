@@ -65,6 +65,7 @@ keybindings) in any shell.
 |------|-------------|
 | **Neovim** | Text editor with treesitter, telescope, and everforest light theme |
 | **WezTerm** | GPU-accelerated terminal with a light color scheme |
+| **tmux** | Terminal multiplexer — detached sessions that survive closing the terminal; `scuts` lists the basics |
 | **eza** | Modern `ls` replacement with colors and icons |
 | **zoxide** | Smarter `cd` that learns your habits |
 | **ripgrep** | Fast `grep` alternative |
