@@ -14,6 +14,10 @@ brew "jq"
 # Lints install.sh and the Claude hooks.
 brew "shellcheck"
 
+# ── Terminal multiplexer ────────────────────────────
+# Keeps detached processes (dev servers, long builds) alive across sessions.
+brew "tmux"
+
 # ── Editor ─────────────────────────────────────────
 brew "neovim"
 
