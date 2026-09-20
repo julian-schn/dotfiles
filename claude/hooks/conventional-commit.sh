@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # PreToolUse(Bash) hook: reject commit subjects that aren't Conventional Commits.
 #
-# settings.json narrows this to `git commit*` via the hook's `if` field, so the script
-# only ever sees commit calls. Exit 2 blocks the tool call and hands stderr back to
-# Claude, which rewrites the message and retries — that's the part CLAUDE.md can't do.
+# settings.json narrows this to `git commit*` via the hook's `if` field, but that
+# filter has been observed firing on commands with no `git commit` in them at all, so
+# this script re-checks for itself rather than trusting it. Exit 2 blocks the tool call
+# and hands stderr back to Claude, which rewrites the message and retries — that's the
+# part CLAUDE.md can't do.
 #
 # Scope is deliberately narrow: structure and trailing period only. Lowercase-first is
 # NOT enforced, because `fix: JSON parser crash` is legitimate and a blocking hook that
@@ -13,13 +15,27 @@
 
 set -euo pipefail
 
+input=$(cat)
+cmd=$(printf '%s' "$input" | jq -r '.tool_input.command // ""')
+
+# Guard: only ever inspect actual commit calls. Without this, any command that merely
+# contains something shaped like -m gets parsed for a commit subject.
+case "$cmd" in
+  *git*commit*) ;;
+  *) exit 0 ;;
+esac
+
+# `-m` must be followed by whitespace, `=`, or an opening quote. Requiring that is what
+# stops long flags that merely start with -m (`-maxdepth`, `-mtime`, `-mmin`) from being
+# read as `-m` plus a subject, which produced bogus rejections like "axdepth".
+#
 # Pull the first -m / --message argument out of the command line, honouring double
 # quotes, single quotes, and bare words. Scans the whole string, so compound commands
 # like `git add -A && git commit -m ...` work. \u0027 is jq's escape for an apostrophe;
 # using it keeps the jq program free of apostrophes so bash single-quoting stays intact.
-subject=$(jq -r '
+subject=$(printf '%s' "$input" | jq -r '
   [ (.tool_input.command // "")
-    | capture("(?:^|\\s)(?:-m|--message[= ])\\s*(?:\"(?<dq>[^\"]*)\"|\u0027(?<sq>[^\u0027]*)\u0027|(?<bare>\\S+))")
+    | capture("(?:^|\\s)(?:--message|-m)(?:\\s*=\\s*|\\s+)(?:\"(?<dq>[^\"]*)\"|\u0027(?<sq>[^\u0027]*)\u0027|(?<bare>\\S+))")
   ]
   | if length == 0 then "" else (.[0] | .dq // .sq // .bare) end
 ')
