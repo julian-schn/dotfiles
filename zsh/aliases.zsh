@@ -4,21 +4,40 @@ alias home='cd ~'
 alias pc='printf "%s" "$PWD" | pbcopy && echo "copied: $PWD"'
 alias slog='git log --oneline'
 
-alias scuts='echo "
-WEZTERM SHORTCUTS (macOS)
+# ---- Cheat sheets ----
+# scuts: key shortcuts inside WezTerm, tmux and yazi. qhelp: commands you type.
+scuts() {
+  cat <<'EOF'
 
-PANES
+WEZTERM
   ⌘ D            Vertical split
   ⌘ ⇧ D          Horizontal split
   ⌘ ⌥ ← ↑ ↓ →    Move between panes
-  ⌘ W            Close pane
-
-TABS
+  ⌘ W            Close pane / tab
   ⌘ T            New tab
-  ⌘ W            Close tab
-  ⌘ ⇧ ]          Next tab
-  ⌘ ⇧ [          Previous tab
+  ⌘ ⇧ ] / ⌘ ⇧ [  Next / previous tab
   ⌘ 1–9          Go to tab
+
+TMUX (prefix = ⌃B, press then release)
+  ⌃B D           Detach (leaves it running)
+  ⌃B %  /  ⌃B "  Split left-right / top-bottom
+  ⌃B ←↑↓→        Move between panes
+  ⌃B C  /  ⌃B N  New window / next window
+  ⌃B [           Scroll back (Q to exit)
+
+YAZI
+  ⏎  /  ←        Open / go up a directory
+  space          Select file
+  .              Toggle hidden files
+  z              Jump with zoxide
+  q              Quit and cd there
+
+Commands: qhelp
+EOF
+}
+
+qhelp() {
+  cat <<'EOF'
 
 SHELL
   cls            Clear the screen
@@ -26,38 +45,26 @@ SHELL
   h <dir>        cd to ~/<dir>
   mkcd <dir>     Create a directory and cd into it
   pc             Copy the current path to the clipboard
-  scuts          Show this cheat sheet
+
+TOOLS
+  y              Open yazi (file manager)
+  slog           Compact one-line git log
+  sweeper        Terminal Minesweeper
+
+TMUX
+  tmux new -s <name>        New named session
+  tmux new -d -s <n> <cmd>  Run <cmd> detached
+  tmux ls                   List sessions
+  tmux a -t <name>          Attach to one
 
 POWER
   blank <pid>    Screen off, Mac keeps running until that process exits
   blank          Same, but held until you run unblank
   unblank        Let the Mac sleep normally again
 
-TMUX (prefix = ⌃B, press then release)
-  tmux new -s <name>       New named session
-  tmux ls                  List sessions
-  tmux a -t <name>         Attach to one
-  tmux new -d -s <n> <cmd> Run <cmd> detached
-  ⌃B D                     Detach (leaves it running)
-  ⌃B %  /  ⌃B \"           Split left-right / top-bottom
-  ⌃B ←↑↓→                  Move between panes
-  ⌃B C  /  ⌃B N            New window / next window
-  ⌃B [                     Scroll back (Q to exit)
-
-YAZI (file manager)
-  y              Open yazi; quitting with q cds into where you ended up
-  ⏎  /  ←        Open / go up a directory
-  space          Select file
-  .              Toggle hidden files
-  z              Jump with zoxide
-  q              Quit
-
-GIT
-  slog           Compact one-line git log
-
-TOOLS
-  sweeper        Terminal Minesweeper
-"'
+Key shortcuts: scuts
+EOF
+}
 
 # ---- Functions ----
 h() { cd "$HOME/${1:-}"; }
