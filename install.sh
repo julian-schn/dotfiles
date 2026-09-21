@@ -72,6 +72,7 @@ link() {
 info "Symlinking configs..."
 link "$DOTFILES_DIR/wezterm"        "$HOME/.config/wezterm"
 link "$DOTFILES_DIR/nvim"           "$HOME/.config/nvim"
+link "$DOTFILES_DIR/yazi"           "$HOME/.config/yazi"
 link "$DOTFILES_DIR/zsh/.zshrc"     "$HOME/.zshrc"
 # .zshrc sources ~/.zsh_aliases — without this link the aliases and
 # functions (pc, scuts, mkcd, h) silently never load.
