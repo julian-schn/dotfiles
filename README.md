@@ -47,8 +47,8 @@ git config --global user.email "you@example.com"
 
 ## Aliases & commands
 
-Defined in `zsh/aliases.zsh`. Forgot one? Run `qhelp` for the commands below, `scuts` for key
-shortcuts (WezTerm, tmux, yazi basics), or `yhelp` for every yazi key.
+Defined in `zsh/aliases.zsh`. Forgot one? Run `qhelp` for the commands below plus yazi basics,
+or `scuts` for the WezTerm and tmux key shortcuts.
 
 | Command | What it does |
 |---------|-------------|
@@ -57,12 +57,11 @@ shortcuts (WezTerm, tmux, yazi basics), or `yhelp` for every yazi key.
 | `h <dir>` | `cd` to `~/<dir>` |
 | `mkcd <dir>` | Create a directory and `cd` into it |
 | `pc` | Copy the current path to the clipboard (no trailing newline) |
-| `qhelp` | Show the commands cheat sheet |
-| `scuts` | Show the key shortcuts cheat sheet (WezTerm, tmux, yazi basics) |
+| `qhelp` | Show the commands cheat sheet, plus yazi basics |
+| `scuts` | Show the key shortcuts cheat sheet (WezTerm, tmux) |
 | `slog` | `git log --oneline` — compact commit history |
 | `sweeper` | Play terminal Minesweeper |
 | `y` | Open yazi; quitting cds into the directory you browsed to |
-| `yhelp` | Show every yazi key worth knowing |
 
 ## Tools
 
@@ -70,7 +69,7 @@ shortcuts (WezTerm, tmux, yazi basics), or `yhelp` for every yazi key.
 |------|-------------|
 | **Neovim** | Text editor with treesitter, telescope, and everforest light theme |
 | **WezTerm** | GPU-accelerated terminal with a light color scheme |
-| **yazi** | Terminal file manager with previews; open it with `y`, `yhelp` lists the keys |
+| **yazi** | Terminal file manager with previews; open it with `y`, `qhelp` lists the basics |
 | **tmux** | Terminal multiplexer — detached sessions that survive closing the terminal; `scuts` lists the keys, `qhelp` the commands |
 | **eza** | Modern `ls` replacement with colors and icons |
 | **zoxide** | Smarter `cd` that learns your habits |
