@@ -18,6 +18,12 @@ brew "shellcheck"
 # Keeps detached processes (dev servers, long builds) alive across sessions.
 brew "tmux"
 
+# ── File manager ────────────────────────────────────
+# poppler and sevenzip give yazi PDF and archive previews.
+brew "yazi"
+brew "poppler"
+brew "sevenzip"
+
 # ── Editor ─────────────────────────────────────────
 brew "neovim"
 
