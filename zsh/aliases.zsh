@@ -29,7 +29,7 @@ YAZI
   ⏎  /  ←        Open / go up a directory
   space          Select file
   .              Toggle hidden files
-  z              Jump with zoxide
+  Z              Jump with zoxide
   q              Quit and cd there
 
 Commands: qhelp
