@@ -5,7 +5,8 @@ alias pc='printf "%s" "$PWD" | pbcopy && echo "copied: $PWD"'
 alias slog='git log --oneline'
 
 # ---- Cheat sheets ----
-# scuts: key shortcuts inside WezTerm, tmux and yazi. qhelp: commands you type.
+# scuts: key shortcuts inside WezTerm, tmux and yazi. yhelp: every yazi key worth knowing.
+# qhelp: commands you type.
 scuts() {
   cat <<'EOF'
 
@@ -32,7 +33,40 @@ YAZI
   Z              Jump with zoxide
   q              Quit and cd there
 
-Commands: qhelp
+All yazi keys: yhelp   Commands: qhelp
+EOF
+}
+
+yhelp() {
+  cat <<'EOF'
+
+YAZI MOVE
+  ↑ ↓  /  j k    Up / down
+  ← →  /  h l    Parent folder / enter
+  gg  /  G       Top / bottom
+  Z              Jump with zoxide
+  gh / gd / gc   Go to home / Downloads / ~/.config
+
+YAZI FILES
+  space          Select (v for a range)
+  y / x / p      Copy / cut / paste
+  a              Create (end with / for a folder)
+  r              Rename
+  d  /  D        Trash / delete for good
+
+YAZI FIND
+  /              Find in this folder (n / N next / previous)
+  f              Filter the list
+  s  /  S        Search names (fd) / contents (rg)
+  .              Toggle hidden files
+
+YAZI TABS & MORE
+  t t            New tab (1–9 switch, [ ] prev / next)
+  c c            Copy file path
+  ;              Run a shell command here
+  ~  /  F1       Full help inside yazi
+  q  /  Q        Quit and cd there / quit and stay
+
 EOF
 }
 
@@ -47,7 +81,7 @@ SHELL
   pc             Copy the current path to the clipboard
 
 TOOLS
-  y              Open yazi (file manager)
+  y              Open yazi (file manager; yhelp lists its keys)
   slog           Compact one-line git log
   sweeper        Terminal Minesweeper
 
