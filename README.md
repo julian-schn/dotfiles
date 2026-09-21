@@ -21,6 +21,8 @@ dotfiles/
 │   └── init.lua            # Neovim config (everforest light, telescope, treesitter)
 ├── wezterm/
 │   └── wezterm.lua         # WezTerm terminal (Danqing Light theme)
+├── yazi/
+│   └── yazi.toml           # Yazi file manager (shows hidden files)
 └── zsh/
     ├── .zshrc              # Zsh config (minimal prompt, zoxide, PATH)
     └── aliases.zsh         # Aliases & functions (symlinked to ~/.zsh_aliases)
@@ -58,6 +60,7 @@ keybindings) in any shell.
 | `scuts` | Show the shortcut cheat sheet |
 | `slog` | `git log --oneline` — compact commit history |
 | `sweeper` | Play terminal Minesweeper |
+| `y` | Open yazi; quitting cds into the directory you browsed to |
 
 ## Tools
 
@@ -65,6 +68,7 @@ keybindings) in any shell.
 |------|-------------|
 | **Neovim** | Text editor with treesitter, telescope, and everforest light theme |
 | **WezTerm** | GPU-accelerated terminal with a light color scheme |
+| **yazi** | Terminal file manager with previews; open it with `y`, `scuts` lists the keys |
 | **tmux** | Terminal multiplexer — detached sessions that survive closing the terminal; `scuts` lists the basics |
 | **eza** | Modern `ls` replacement with colors and icons |
 | **zoxide** | Smarter `cd` that learns your habits |
