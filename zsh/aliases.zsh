@@ -44,6 +44,14 @@ TMUX (prefix = ⌃B, press then release)
   ⌃B C  /  ⌃B N            New window / next window
   ⌃B [                     Scroll back (Q to exit)
 
+YAZI (file manager)
+  y              Open yazi; quitting with q cds into where you ended up
+  ⏎  /  ←        Open / go up a directory
+  space          Select file
+  .              Toggle hidden files
+  z              Jump with zoxide
+  q              Quit
+
 GIT
   slog           Compact one-line git log
 
@@ -54,6 +62,15 @@ TOOLS
 # ---- Functions ----
 h() { cd "$HOME/${1:-}"; }
 mkcd() { mkdir -p "$1" && cd "$1"; }
+
+# Yazi wrapper from its docs: cd into the directory yazi was in when you quit.
+y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [[ -n "$cwd" && "$cwd" != "$PWD" ]] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
 
 # Keep the Mac working with the screen off. KeepingYouAwake uses `caffeinate -d`,
 # which pins the display on; `-i` alone blocks only idle *system* sleep, so the
