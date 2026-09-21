@@ -47,8 +47,8 @@ git config --global user.email "you@example.com"
 
 ## Aliases & commands
 
-Defined in `zsh/aliases.zsh`. Forgot one? Run `scuts` — it prints this list (plus the WezTerm
-keybindings) in any shell.
+Defined in `zsh/aliases.zsh`. Forgot one? Run `qhelp` for the commands below, `scuts` for key
+shortcuts (WezTerm, tmux, yazi basics), or `yhelp` for every yazi key.
 
 | Command | What it does |
 |---------|-------------|
@@ -57,10 +57,12 @@ keybindings) in any shell.
 | `h <dir>` | `cd` to `~/<dir>` |
 | `mkcd <dir>` | Create a directory and `cd` into it |
 | `pc` | Copy the current path to the clipboard (no trailing newline) |
-| `scuts` | Show the shortcut cheat sheet |
+| `qhelp` | Show the commands cheat sheet |
+| `scuts` | Show the key shortcuts cheat sheet (WezTerm, tmux, yazi basics) |
 | `slog` | `git log --oneline` — compact commit history |
 | `sweeper` | Play terminal Minesweeper |
 | `y` | Open yazi; quitting cds into the directory you browsed to |
+| `yhelp` | Show every yazi key worth knowing |
 
 ## Tools
 
@@ -68,8 +70,8 @@ keybindings) in any shell.
 |------|-------------|
 | **Neovim** | Text editor with treesitter, telescope, and everforest light theme |
 | **WezTerm** | GPU-accelerated terminal with a light color scheme |
-| **yazi** | Terminal file manager with previews; open it with `y`, `scuts` lists the keys |
-| **tmux** | Terminal multiplexer — detached sessions that survive closing the terminal; `scuts` lists the basics |
+| **yazi** | Terminal file manager with previews; open it with `y`, `yhelp` lists the keys |
+| **tmux** | Terminal multiplexer — detached sessions that survive closing the terminal; `scuts` lists the keys, `qhelp` the commands |
 | **eza** | Modern `ls` replacement with colors and icons |
 | **zoxide** | Smarter `cd` that learns your habits |
 | **ripgrep** | Fast `grep` alternative |
