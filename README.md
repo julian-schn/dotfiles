@@ -88,7 +88,7 @@ tracked here and `install.sh` symlinks it back into place.
 | `claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | Commit conventions, running detached work in tmux, and when to push back on me |
 | `claude/settings.json` | `~/.claude/settings.json` | Model, light theme, fullscreen TUI, plugins, hooks |
 | `claude/rules/` | `~/.claude/rules/` | Rules scoped to file globs — load only when Claude reads a matching file |
-| `claude/skills/ui-review/` | `~/.claude/skills/ui-review/` | Accessibility and responsive audit, pulled in on UI work |
+| `claude/skills/ui-review/` | `~/.claude/skills/ui-review/` | Accessibility, responsive and calm UI audit, pulled in on UI work |
 | `claude/hooks/*.sh` | `~/.claude/hooks/` | See below |
 
 Two hooks:
