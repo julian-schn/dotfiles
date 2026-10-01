@@ -105,6 +105,11 @@ else
     info "claude CLI not found — skipping playwright MCP"
 fi
 
+# ── Dock ───────────────────────────────────────────
+info "Applying Dock settings..."
+"$DOTFILES_DIR/macos/dock.sh"
+success "Dock configured"
+
 # ── Done ────────────────────────────────────────────
 echo ""
 success "Dotfiles installed!"
