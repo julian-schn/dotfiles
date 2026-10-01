@@ -17,6 +17,8 @@ dotfiles/
 │   └── hooks/              # Shell hooks
 ├── git/
 │   └── .gitconfig          # Git config template
+├── macos/
+│   └── dock.sh             # Dock layout and autohide
 ├── nvim/
 │   └── init.lua            # Neovim config (everforest light, telescope, treesitter)
 ├── wezterm/
@@ -77,6 +79,21 @@ or `scuts` for the WezTerm and tmux key shortcuts.
 | **fd** | Fast `find` alternative |
 | **delta** | Pretty git diffs |
 | **sweeper** | Terminal Minesweeper ([tui-sweeper](https://github.com/julian-schn/tui-sweeper)) — not from Homebrew; `install.sh` builds it with `go install`, so it needs Go and lands in `$(go env GOPATH)/bin` |
+
+## Dock
+
+`macos/dock.sh` sets the Dock's look and behavior; `install.sh` runs it, and it is safe to rerun
+on its own. It writes `com.apple.dock` defaults, then restarts the Dock.
+
+| Setting | Value |
+|---------|-------|
+| Position | Left |
+| Icon size | 32, no magnification |
+| Autohide | On, no delay, no slide animation — it appears instantly |
+| Minimize effect | Scale |
+| Recent apps | Hidden |
+
+Pinned apps are left alone.
 
 ## Claude Code
 
