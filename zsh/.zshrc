@@ -13,6 +13,15 @@ if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 fi
 
+# ---- fzf (fuzzy finder: ⌃R history, ⌃T files, ⌥C cd) ----
+if command -v fzf >/dev/null 2>&1; then
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
+  export FZF_DEFAULT_OPTS='--color=light --height=40% --layout=reverse'
+  source <(fzf --zsh)
+fi
+
 # ---- Aliases & functions ----
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 

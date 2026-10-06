@@ -7,6 +7,8 @@ brew "zoxide"
 brew "ripgrep"
 brew "fd"
 brew "git-delta"
+# Fuzzy finder; .zshrc points it at fd and binds ⌃R / ⌃T / ⌥C.
+brew "fzf"
 # macOS ships jq, but the conventional-commit hook depends on it — be explicit.
 brew "jq"
 
