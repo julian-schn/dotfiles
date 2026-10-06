@@ -26,7 +26,7 @@ dotfiles/
 ├── yazi/
 │   └── yazi.toml           # Yazi file manager (shows hidden files)
 └── zsh/
-    ├── .zshrc              # Zsh config (minimal prompt, zoxide, PATH)
+    ├── .zshrc              # Zsh config (minimal prompt, zoxide, fzf, PATH)
     └── aliases.zsh         # Aliases & functions (symlinked to ~/.zsh_aliases)
 ```
 
@@ -50,7 +50,7 @@ git config --global user.email "you@example.com"
 ## Aliases & commands
 
 Defined in `zsh/aliases.zsh`. Forgot one? Run `qhelp` for the commands below plus yazi basics,
-or `scuts` for the WezTerm and tmux key shortcuts.
+or `scuts` for the WezTerm, tmux and fzf key shortcuts.
 
 | Command | What it does |
 |---------|-------------|
@@ -60,7 +60,7 @@ or `scuts` for the WezTerm and tmux key shortcuts.
 | `mkcd <dir>` | Create a directory and `cd` into it |
 | `pc` | Copy the current path to the clipboard (no trailing newline) |
 | `qhelp` | Show the commands cheat sheet, plus yazi basics |
-| `scuts` | Show the key shortcuts cheat sheet (WezTerm, tmux) |
+| `scuts` | Show the key shortcuts cheat sheet (WezTerm, tmux, fzf) |
 | `slog` | `git log --oneline` — compact commit history |
 | `sweeper` | Play terminal Minesweeper |
 | `y` | Open yazi; quitting cds into the directory you browsed to |
@@ -77,6 +77,7 @@ or `scuts` for the WezTerm and tmux key shortcuts.
 | **zoxide** | Smarter `cd` that learns your habits |
 | **ripgrep** | Fast `grep` alternative |
 | **fd** | Fast `find` alternative |
+| **fzf** | Fuzzy finder at the prompt: ⌃R searches history, ⌃T pastes a file path, ⌥C cds into a folder. Lists files with `fd` (dotfiles included, `.git` skipped) in light colors; `scuts` lists the keys |
 | **delta** | Pretty git diffs |
 | **sweeper** | Terminal Minesweeper ([tui-sweeper](https://github.com/julian-schn/tui-sweeper)) — not from Homebrew; `install.sh` builds it with `go install`, so it needs Go and lands in `$(go env GOPATH)/bin` |
 
