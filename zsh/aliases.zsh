@@ -25,6 +25,12 @@ TMUX (prefix = ⌃B, press then release)
   ⌃B C  /  ⌃B N  New window / next window
   ⌃B [           Scroll back (Q to exit)
 
+FZF (at the shell prompt)
+  ⌃R             Search command history
+  ⌃T             Pick a file, paste its path
+  ⌥C             Pick a folder, cd into it
+  **<Tab>        Fuzzy-complete, e.g. vim **<Tab>
+
 Commands: qhelp
 EOF
 }
@@ -43,6 +49,7 @@ TOOLS
   y              Open yazi (file manager)
   slog           Compact one-line git log
   sweeper        Terminal Minesweeper
+  fzf            Fuzzy finder; keys in scuts
 
 YAZI (inside y)
   ← →  /  ⏎      Parent folder / enter, open
