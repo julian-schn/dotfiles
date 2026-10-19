@@ -77,6 +77,14 @@ EOF
 h() { cd "$HOME/${1:-}"; }
 mkcd() { mkdir -p "$1" && cd "$1"; }
 
+# md2pdf <file.md> [out.pdf]: tables, images, code blocks via pandoc + typst.
+# --resource-path resolves relative image paths from the markdown file's folder.
+md2pdf() {
+  [[ -f ${1:-} ]] || { echo "usage: md2pdf <file.md> [out.pdf]" >&2; return 1; }
+  pandoc "$1" -f gfm -o "${2:-${1%.md}.pdf}" --pdf-engine=typst \
+    --resource-path="${1:h}" -V mainfont="Helvetica Neue"
+}
+
 # Yazi wrapper from its docs: cd into the directory yazi was in when you quit.
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
