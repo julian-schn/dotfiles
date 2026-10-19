@@ -26,6 +26,11 @@ brew "yazi"
 brew "poppler"
 brew "sevenzip"
 
+# ── Documents ───────────────────────────────────────
+# pandoc converts markdown; typst is its PDF engine (no LaTeX needed). See md2pdf.
+brew "pandoc"
+brew "typst"
+
 # ── Editor ─────────────────────────────────────────
 brew "neovim"
 
