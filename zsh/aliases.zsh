@@ -50,6 +50,7 @@ TOOLS
   slog           Compact one-line git log
   sweeper        Terminal Minesweeper
   fzf            Fuzzy finder; keys in scuts
+  md2pdf <f.md>  Markdown to PDF (tables, images) next to it
 
 YAZI (inside y)
   ← →  /  ⏎      Parent folder / enter, open

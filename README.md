@@ -57,6 +57,7 @@ or `scuts` for the WezTerm, tmux and fzf key shortcuts.
 | `cls` | Clear the screen |
 | `home` | `cd` to home |
 | `h <dir>` | `cd` to `~/<dir>` |
+| `md2pdf <f.md> [out.pdf]` | Convert markdown to PDF with tables, images and code blocks; writes `f.pdf` next to it by default |
 | `mkcd <dir>` | Create a directory and `cd` into it |
 | `pc` | Copy the current path to the clipboard (no trailing newline) |
 | `qhelp` | Show the commands cheat sheet, plus yazi basics |
@@ -79,6 +80,7 @@ or `scuts` for the WezTerm, tmux and fzf key shortcuts.
 | **fd** | Fast `find` alternative |
 | **fzf** | Fuzzy finder at the prompt: ⌃R searches history, ⌃T pastes a file path, ⌥C cds into a folder. Lists files with `fd` (dotfiles included, `.git` skipped) in light colors; `scuts` lists the keys |
 | **delta** | Pretty git diffs |
+| **pandoc + typst** | Markdown to PDF; pandoc converts, typst typesets (no LaTeX install). Run it with `md2pdf` |
 | **sweeper** | Terminal Minesweeper ([tui-sweeper](https://github.com/julian-schn/tui-sweeper)) — not from Homebrew; `install.sh` builds it with `go install`, so it needs Go and lands in `$(go env GOPATH)/bin` |
 
 ## Dock
