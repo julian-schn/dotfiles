@@ -82,11 +82,14 @@ mkcd() { mkdir -p "$1" && cd "$1"; }
 # --resource-path resolves relative image paths from the markdown file's folder.
 # pandoc wraps tables in typst figures, which never split, so a long table jumps
 # to the next page and strands its heading. The show rule lets them break.
+# Cells are left-aligned and unjustified; justified narrow columns leave big gaps.
 md2pdf() {
   [[ -f ${1:-} ]] || { echo "usage: md2pdf <file.md> [out.pdf]" >&2; return 1; }
   pandoc "$1" -f gfm -o "${2:-${1%.md}.pdf}" --pdf-engine=typst \
     --resource-path="${1:h}" -V mainfont="Helvetica Neue" \
-    -V 'header-includes=#show figure: set block(breakable: true)'
+    -V 'header-includes=#show figure: set block(breakable: true)' \
+    -V 'header-includes=#show table.cell: set par(justify: false)' \
+    -V 'header-includes=#show table.cell: set align(left)'
 }
 
 # Yazi wrapper from its docs: cd into the directory yazi was in when you quit.
