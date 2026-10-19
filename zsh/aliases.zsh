@@ -80,10 +80,13 @@ mkcd() { mkdir -p "$1" && cd "$1"; }
 
 # md2pdf <file.md> [out.pdf]: tables, images, code blocks via pandoc + typst.
 # --resource-path resolves relative image paths from the markdown file's folder.
+# pandoc wraps tables in typst figures, which never split, so a long table jumps
+# to the next page and strands its heading. The show rule lets them break.
 md2pdf() {
   [[ -f ${1:-} ]] || { echo "usage: md2pdf <file.md> [out.pdf]" >&2; return 1; }
   pandoc "$1" -f gfm -o "${2:-${1%.md}.pdf}" --pdf-engine=typst \
-    --resource-path="${1:h}" -V mainfont="Helvetica Neue"
+    --resource-path="${1:h}" -V mainfont="Helvetica Neue" \
+    -V 'header-includes=#show figure: set block(breakable: true)'
 }
 
 # Yazi wrapper from its docs: cd into the directory yazi was in when you quit.
