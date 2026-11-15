@@ -20,7 +20,9 @@ dotfiles/
 ├── macos/
 │   └── dock.sh             # Dock layout and autohide
 ├── nvim/
-│   └── init.lua            # Neovim config (everforest light, telescope, treesitter)
+│   ├── init.lua            # LazyVim distro bootstrap
+│   ├── colors/             # danqing colorscheme loader
+│   └── lua/                # config/, plugins/, lush_theme/danqing.lua
 ├── wezterm/
 │   └── wezterm.lua         # WezTerm terminal (Danqing Light theme)
 ├── yazi/
@@ -70,7 +72,7 @@ or `scuts` for the WezTerm, tmux and fzf key shortcuts.
 
 | Tool | What it does |
 |------|-------------|
-| **Neovim** | Text editor with treesitter, telescope, and everforest light theme |
+| **Neovim** | LazyVim distro with a custom lush.nvim theme matching the WezTerm Danqing Light palette |
 | **WezTerm** | GPU-accelerated terminal with a light color scheme |
 | **yazi** | Terminal file manager with previews; open it with `y`, `qhelp` lists the basics |
 | **tmux** | Terminal multiplexer — detached sessions that survive closing the terminal; `scuts` lists the keys, `qhelp` the commands |
