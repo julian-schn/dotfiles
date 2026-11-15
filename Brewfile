@@ -33,6 +33,9 @@ brew "typst"
 
 # ── Editor ─────────────────────────────────────────
 brew "neovim"
+# LazyVim: <leader>gg opens lazygit; nvim-treesitter builds parsers with the tree-sitter CLI
+brew "lazygit"
+brew "tree-sitter-cli"
 
 # ── Applications ────────────────────────────────────
 cask "wezterm"
