@@ -1,0 +1,2 @@
+-- Loaded on VeryLazy. LazyVim defaults: https://www.lazyvim.org/keymaps
+-- Add your own with vim.keymap.set(mode, lhs, rhs, { desc = "..." })
