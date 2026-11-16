@@ -30,6 +30,8 @@ brew "sevenzip"
 # pandoc converts markdown; typst is its PDF engine (no LaTeX needed). See md2pdf.
 brew "pandoc"
 brew "typst"
+# Renders markdown in the terminal.
+brew "glow"
 
 # ── Editor ─────────────────────────────────────────
 brew "neovim"
