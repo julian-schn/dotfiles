@@ -78,6 +78,8 @@ link "$DOTFILES_DIR/zsh/.zshrc"     "$HOME/.zshrc"
 # functions (pc, scuts, mkcd, h) silently never load.
 link "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.zsh_aliases"
 link "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
+# glow reads its config from ~/Library/Preferences on macOS, not ~/.config.
+link "$DOTFILES_DIR/glow/glow.yml"   "$HOME/Library/Preferences/glow/glow.yml"
 
 # ── Claude Code ────────────────────────────────────
 # File-level links wherever the parent directory also holds runtime state:

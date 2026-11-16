@@ -17,6 +17,8 @@ dotfiles/
 │   └── hooks/              # Shell hooks
 ├── git/
 │   └── .gitconfig          # Git config template
+├── glow/
+│   └── glow.yml            # Glow markdown viewer (light style)
 ├── macos/
 │   └── dock.sh             # Dock layout and autohide
 ├── nvim/
@@ -83,7 +85,7 @@ or `scuts` for the WezTerm, tmux and fzf key shortcuts.
 | **fzf** | Fuzzy finder at the prompt: ⌃R searches history, ⌃T pastes a file path, ⌥C cds into a folder. Lists files with `fd` (dotfiles included, `.git` skipped) in light colors; `scuts` lists the keys |
 | **delta** | Pretty git diffs |
 | **pandoc + typst** | Markdown to PDF; pandoc converts, typst typesets (no LaTeX install). Run it with `md2pdf` |
-| **glow** | Renders markdown in the terminal: `glow README.md` |
+| **glow** | Renders markdown in the terminal: `glow README.md`. Pinned to the light style, since `auto` picks dark in WezTerm |
 | **sweeper** | Terminal Minesweeper ([tui-sweeper](https://github.com/julian-schn/tui-sweeper)) — not from Homebrew; `install.sh` builds it with `go install`, so it needs Go and lands in `$(go env GOPATH)/bin` |
 
 ## Dock

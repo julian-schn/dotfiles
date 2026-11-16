@@ -1,0 +1,12 @@
+# glow config — linked to ~/Library/Preferences/glow/glow.yml by install.sh.
+# "auto" picks the dark style in WezTerm, which renders grey text on the light
+# Danqing background. Force the light style instead.
+style: "light"
+# mouse support (TUI-mode only)
+mouse: false
+# use pager to display markdown
+pager: false
+# word-wrap at width
+width: 80
+# show all files, including hidden and ignored.
+all: false
